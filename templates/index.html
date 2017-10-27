@@ -1,0 +1,177 @@
+<html>
+    
+    <head>
+        <title>Quantum Simulator!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+        <script src="../static/js/script.js"></script> 
+    </head>
+
+    <body>
+        
+        <h1>Quantum Circuit Simulation with Quil!</h1>
+        <div class="menu-wrap">
+            
+            <nav class="menu">
+                <ul class="clearfix">
+                   
+                        <p>Q0</p>
+                    <li>
+                        <a href="#" class="box"><span id="x00" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x00', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x00', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x00', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x00', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x00', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x00', 'M')">M</a></li>
+                        </ul>
+                    </li>
+
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x01" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x01', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x01', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x01', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x01', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x01', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x01', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x02" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x02', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x02', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x02', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x02', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x02', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x02', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x03" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x03', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x03', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x03', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x03', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x03', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x03', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x04" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x04', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x04', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x04', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x04', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x04', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x04', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+        
+        <br><br><br><br>
+        <div class="menu-wrap">
+            <nav class="menu">
+                <ul class="clearfix">
+                    
+                    <p>Q1</p>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x10" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x10', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x10', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x10', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x10', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x10', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x10', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x11" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x11', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x11', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x11', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x11', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x11', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x11', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x12" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x12', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x12', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x12', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x12', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x12', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x12', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x13" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x13', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x13', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x13', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x13', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x13', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x13', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="box"><span id="x14" class="arrow">&bull;</span></a>
+
+                        <ul class="sub-menu">
+                            <li><a onclick="myfunc('x14', 'X')">X</a></li>
+                            <li><a onclick="myfunc('x14', 'Y')">Y</a></li>
+                            <li><a onclick="myfunc('x14', 'Z')">Z</a></li>
+                            <li><a onclick="myfunc('x14', 'H')">H</a></li>
+                            <li><a onclick="myfunc('x14', '&#8853;')">&#8853;</a></li>
+                            <li><a onclick="myfunc('x14', 'M')">M</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+        
+        <br><br><br><br><br>
+        <button id="submit">Submit!</button>
+        <button onclick="reset()">Reset!</button>
+        <br><br><br>
+        <div id="quilcode"></div>
+        <br/><br/>
+        <div id="result">
+        </div>
+        
+    </body>
+
+</html>
