@@ -1,29 +1,45 @@
 function myfunc(id, cls) {
-	document.getElementById(id).innerHTML = cls;
+    var bc = {'H':'#9dd7d4', '%u2295':'#be576a', 'Z':'#242b2a', 'M':'#d4dfe0', 'Y':'#93b08b', 'X':'#f18675'};
+    var tc = {'H':'white', '%u2295':'#e8d4d7', 'Z':'#cf5237', 'M':'#85be7f', 'Y':'#c9ba70', 'X':'white'};
+    if(cls === '%u2295'){
+       target = prompt('Enter the target bit : ');
+        if(target){
+            document.getElementById(id).innerHTML = '&#8853;';
+            document.getElementById('x'+target+id[2]).innerHTML = '&#10006;';
+            document.getElementById(id).parentElement.style.color = tc[cls];
+            document.getElementById(id).parentElement.style.backgroundColor = bc[cls];
+            document.getElementById('x'+target+id[2]).parentElement.style.color = tc[cls];
+            document.getElementById('x'+target+id[2]).parentElement.style.backgroundColor = bc[cls];
+        }
+    }
+    else{
+        document.getElementById(id).innerHTML = cls;
+        document.getElementById(id).parentElement.style.color = tc[cls];
+        document.getElementById(id).parentElement.style.backgroundColor = bc[cls];
+    }
 }
 
-function reset() {
-	for (i = 0; i < 2; i++) {
-		for (j = 0; j < 5; j++) {
-			document.getElementById('x' + i + j).innerHTML = '&bull;';
-		}
-	}
-}
-
-function submit() {
+function submit(r,c) {
 	y = "";
-	for (i = 0; i < 5; i++) {
+	for (i = 0; i < c; i++) {
 		x = "";
-		for (j = 0; j < 2; j++) {
+		for (j = 0; j < r; j++) {
 			op = escape(document.getElementById('x' + j + i).innerHTML);
-			if (op !== '%u2022') {
+			if (op !== '%u2022' && op!== '%u2716') {
 				if (op == '%u2295') {
 					op = 'CNOT';
-					x = x + op + " " + j + " " + Number(!j) + "\n";
-				} else if (op == 'M') {
+                    for(k=0; k<r; k++){
+                        if(escape(document.getElementById('x' + k + i).innerHTML) == '%u2716')
+                            break;
+                    }
+					x = x + op + " " + j + " " + k + "\n";
+				}
+                else if (op == 'M') {
 					op = 'MEASURE';
 					x = x + op + " " + j + " [" + j + "]" + "\n";
-				} else x = x + op + " " + j + "\n";
+				}
+                else
+                    x = x + op + " " + j + "\n";
 			}
 		}
 		y = y + x + '`';
@@ -34,21 +50,36 @@ function submit() {
 }
 
 function dispquil(codes) {
-	document.getElementById('quilcode').innerHTML = 'QUIL PROGRAM : <br/><br/>';
+    document.getElementById("quilres").innerHTML="";
+    document.getElementById("pyres").innerHTML="";
+    qcode="\n";
 	for (i = 0; i < codes.length; i++) {
-		document.getElementById('quilcode').innerHTML += codes[i] + '<br />';
+          if(codes[i].length > 1)
+		  qcode += codes[i] + '\n';
 	}
+    var para = document.createElement("P");
+    var t = document.createTextNode(qcode);
+    para.appendChild(t);
+    document.getElementById("quilres").appendChild(para);
 }
 
 function successCallBack(returnData) {
-	write = 'STATE OF LINE : ' + '<br/><br/>';
-	for (key in returnData) write += 'State of Line ' + key + ' is : ' + returnData[key] + '<br/><br/>';
-	document.getElementById("result").innerHTML = write;
+    write="";
+	for (key in returnData)
+        write += 'State of Line ' + key + ' is : ' + returnData[key] + '\n\n';
+    var para = document.createElement("P");
+    var t = document.createTextNode(write);
+    para.appendChild(t);
+    document.getElementById("pyres").appendChild(para);
 }
 
 $(document).ready(function() {
+    var r=2,c=3;
+
 	$("#submit").click(function() {
-		str = submit();
+        document.getElementById('quilcode').style.visibility = 'visible';
+		str = submit(r,c);
+        document.getElementById('result').style.visibility = 'visible';
 		var response = {};
 		response['ins'] = str;
 		data = JSON.stringify(response);
@@ -62,4 +93,50 @@ $(document).ready(function() {
 			success: successCallBack
 		});
 	});
+
+    $("#reset").click(function() {
+        for (i = 0; i < r; i++) {
+		  for (j = 0; j < c; j++){
+            document.getElementById('x'+i+j).innerHTML = '&bull;';
+            document.getElementById('x'+i+j).parentElement.style.color = 'grey';
+            document.getElementById('x'+i+j).parentElement.style.backgroundColor = 'white';
+          }
+	    }
+        var qp=document.getElementById('quilres');
+        qp.removeChild(qp.childNodes[0]);
+        var pr=document.getElementById('pyres');
+        pr.removeChild(pr.childNodes[0]);
+    });
+
+
+
+
+    $("#cols").click(function() {
+        console.log("Cols function entered. Value of r : ", r, "  Value of c : ",c);
+       for(index=0; index<r; index++){
+           var structure = $("<li><a href=\"#\" class=\"box\"><span id=\"x" + (index) + (c) + "\" class=\"arrow\">&bull;</span></a><ul class=\"sub-menu\"><li><a onclick=\"myfunc('x" + (index) + (c) + "\', \'X\')\">X</a></li><li><a onclick=\"myfunc(\'x" +(index) + (c) + "\', \'Y\')\">Y</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'Z\')\">Z</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'H\')\">H</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'%u2295\')\">&#8853;</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'M\')\">M</a></li></ul></li>");
+
+           $('#r'+index).append(structure);
+       }
+        c=c+1;
+        console.log("Value of c after adding a column : ", c);
+    });
+
+    $("#rows").click(function(){
+
+
+       bd = "<div class=\"menu-wrap\"><nav class=\"menu\"><ul class=\"clearfix\" id=\"r" +(r) + "\"><p>Q" + (r) + "</p>";
+
+        for (index=0; index<c; index++){
+            bd=bd+ "<li><a href=\"#\" class=\"box\"><span id=\"x" + (r) + (index) + "\" class=\"arrow\">&bull;</span></a><ul class=\"sub-menu\"><li><a onclick=\"myfunc(\'x" + (r) + (index) + '\', \'X\')\">X</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'Y\')\">Y</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'Z\')\">Z</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'H\')\">H</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'%u2295\')\">&#8853;</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'M\')\">M</a></li></ul></li>';
+        }
+
+        bd=bd+"</ul></nav></div><br><br><br><br><br>";
+
+       var structure = $(bd);
+       $('#container').append(structure);
+
+        r=r+1;
+        console.log("Value of r after adding a row : ", r);
+    });
 });
