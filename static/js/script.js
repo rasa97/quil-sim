@@ -12,6 +12,22 @@ function myfunc(id, cls) {
             document.getElementById('x'+target+id[2]).parentElement.style.backgroundColor = bc[cls];
         }
     }
+
+    else if(cls == 'CLR'){
+        if(escape(document.getElementById(id).innerHTML) == '%u2295'){
+            for(k=0; k<$("#container div").length ; k++){
+                if(escape(document.getElementById('x' + k + id[2]).innerHTML) == '%u2716')
+                    break;
+            }
+            document.getElementById('x' + k + id[2]).innerHTML = '&bull;';
+            document.getElementById('x' + k + id[2]).parentElement.style.color = 'grey';
+            document.getElementById('x' + k + id[2]).parentElement.style.backgroundColor = 'white';
+        }
+        document.getElementById(id).innerHTML = '&bull;';
+        document.getElementById(id).parentElement.style.color = 'grey';
+        document.getElementById(id).parentElement.style.backgroundColor = 'white';
+    }
+
     else{
         document.getElementById(id).innerHTML = cls;
         document.getElementById(id).parentElement.style.color = tc[cls];
@@ -114,7 +130,7 @@ $(document).ready(function() {
     $("#cols").click(function() {
         console.log("Cols function entered. Value of r : ", r, "  Value of c : ",c);
        for(index=0; index<r; index++){
-           var structure = $("<li><a href=\"#\" class=\"box\"><span id=\"x" + (index) + (c) + "\" class=\"arrow\">&bull;</span></a><ul class=\"sub-menu\"><li><a onclick=\"myfunc('x" + (index) + (c) + "\', \'X\')\">X</a></li><li><a onclick=\"myfunc(\'x" +(index) + (c) + "\', \'Y\')\">Y</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'Z\')\">Z</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'H\')\">H</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'%u2295\')\">&#8853;</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'M\')\">M</a></li></ul></li>");
+           var structure = $("<li><a href=\"#\" class=\"box\"><span id=\"x" + (index) + (c) + "\" class=\"arrow\">&bull;</span></a><ul class=\"sub-menu\"><li><a onclick=\"myfunc('x" + (index) + (c) + "\', \'X\')\">X</a></li><li><a onclick=\"myfunc(\'x" +(index) + (c) + "\', \'Y\')\">Y</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'Z\')\">Z</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'H\')\">H</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'%u2295\')\">&#8853;</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'M\')\">M</a></li><li><a onclick=\"myfunc(\'x" + (index) + (c) + "\', \'CLR\')\">CLEAR</a></li></ul></li>");
 
            $('#r'+index).append(structure);
        }
@@ -128,7 +144,7 @@ $(document).ready(function() {
        bd = "<div class=\"menu-wrap\"><nav class=\"menu\"><ul class=\"clearfix\" id=\"r" +(r) + "\"><p>Q" + (r) + "</p>";
 
         for (index=0; index<c; index++){
-            bd=bd+ "<li><a href=\"#\" class=\"box\"><span id=\"x" + (r) + (index) + "\" class=\"arrow\">&bull;</span></a><ul class=\"sub-menu\"><li><a onclick=\"myfunc(\'x" + (r) + (index) + '\', \'X\')\">X</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'Y\')\">Y</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'Z\')\">Z</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'H\')\">H</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'%u2295\')\">&#8853;</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'M\')\">M</a></li></ul></li>';
+            bd=bd+ "<li><a href=\"#\" class=\"box\"><span id=\"x" + (r) + (index) + "\" class=\"arrow\">&bull;</span></a><ul class=\"sub-menu\"><li><a onclick=\"myfunc(\'x" + (r) + (index) + '\', \'X\')\">X</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'Y\')\">Y</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'Z\')\">Z</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'H\')\">H</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'%u2295\')\">&#8853;</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'M\')\">M</a></li><li><a onclick=\"myfunc(\'x' + (r) + (index) + '\', \'CLR\')\">CLEAR</a></li></ul></li>';
         }
 
         bd=bd+"</ul></nav></div><br><br><br><br><br>";
