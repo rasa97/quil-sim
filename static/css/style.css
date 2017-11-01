@@ -142,8 +142,8 @@ h1 {
     float:right;
     padding-right:10px;
     visibility: hidden;
-    white-space: pre;
-    text-align: left;
+    white-space: pre-line;
+    text-align: center;;
 }
 #py{
     font-family: 'Fjalla One', sans-serif;
