@@ -4,142 +4,15 @@
      arXiv:1608.03355 [quant-ph], https://arxiv.org/abs/1608.03355
  -->
 
-<html>
-
+ <html>
     <head>
-        <title>Quantum Circuit Simulator</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-        </script>
-        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-        <meta charset="UTF-8">
+        <title>Quantum Circuit Simulator - Under Development</title>
+        <link href="../static/style.afa991ced417cdaedc48.css" rel="stylesheet">
     </head>
 
     <body>
-
-        <div id="header">
-            <h1>Quantum Circuit Simulation With Quil</h1>
-        </div>
-        <div id="container">
-        <div class="menu-wrap">
-
-            <nav class="menu">
-                <ul class="clearfix" id="r0">
-                    <p id="firstq">Q0</p>
-                    <li>
-                        <a href="#" class="box"><span id="x00" class="arrow">&bull;</span></a>
-                        <ul class="sub-menu">
-                            <li><a onclick="myfunc('x00', 'X')">X</a></li>
-                            <li><a onclick="myfunc('x00', 'Y')">Y</a></li>
-                            <li><a onclick="myfunc('x00', 'Z')">Z</a></li>
-                            <li><a onclick="myfunc('x00', 'H')">H</a></li>
-                            <li><a onclick="myfunc('x00', '%u2295')">&#8853;</a></li>
-                            <li><a onclick="myfunc('x00', 'M')">M</a></li>
-                            <li><a onclick="myfunc('x00', 'CLR')">CLEAR</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="box"><span id="x01" class="arrow">&bull;</span></a>
-
-                        <ul class="sub-menu">
-                            <li><a onclick="myfunc('x01', 'X')">X</a></li>
-                            <li><a onclick="myfunc('x01', 'Y')">Y</a></li>
-                            <li><a onclick="myfunc('x01', 'Z')">Z</a></li>
-                            <li><a onclick="myfunc('x01', 'H')">H</a></li>
-                            <li><a onclick="myfunc('x01', '%u2295')">&#8853;</a></li>
-                            <li><a onclick="myfunc('x01', 'M')">M</a></li>
-                            <li><a onclick="myfunc('x01', 'CLR')">CLEAR</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="box"><span id="x02" class="arrow">&bull;</span></a>
-
-                        <ul class="sub-menu">
-                            <li><a onclick="myfunc('x02', 'X')">X</a></li>
-                            <li><a onclick="myfunc('x02', 'Y')">Y</a></li>
-                            <li><a onclick="myfunc('x02', 'Z')">Z</a></li>
-                            <li><a onclick="myfunc('x02', 'H')">H</a></li>
-                            <li><a onclick="myfunc('x02', '%u2295')">&#8853;</a></li>
-                            <li><a onclick="myfunc('x02', 'M')">M</a></li>
-                            <li><a onclick="myfunc('x02', 'CLR')">CLEAR</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-        <br><br><br><br>
-        <div class="menu-wrap">
-            <nav class="menu">
-                <ul class="clearfix" id="r1">
-
-                    <p>Q1</p>
-
-                    <li>
-                        <a href="#" class="box"><span id="x10" class="arrow">&bull;</span></a>
-
-                        <ul class="sub-menu">
-                            <li><a onclick="myfunc('x10', 'X')">X</a></li>
-                            <li><a onclick="myfunc('x10', 'Y')">Y</a></li>
-                            <li><a onclick="myfunc('x10', 'Z')">Z</a></li>
-                            <li><a onclick="myfunc('x10', 'H')">H</a></li>
-                            <li><a onclick="myfunc('x10', '%u2295')">&#8853;</a></li>
-                            <li><a onclick="myfunc('x10', 'M')">M</a></li>
-                            <li><a onclick="myfunc('x10', 'CLR')">CLEAR</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" class="box"><span id="x11" class="arrow">&bull;</span></a>
-
-                        <ul class="sub-menu">
-                            <li><a onclick="myfunc('x11', 'X')">X</a></li>
-                            <li><a onclick="myfunc('x11', 'Y')">Y</a></li>
-                            <li><a onclick="myfunc('x11', 'Z')">Z</a></li>
-                            <li><a onclick="myfunc('x11', 'H')">H</a></li>
-                            <li><a onclick="myfunc('x11', '%u2295')">&#8853;</a></li>
-                            <li><a onclick="myfunc('x11', 'M')">M</a></li>
-                            <li><a onclick="myfunc('x11', 'CLR')">CLEAR</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" class="box"><span id="x12" class="arrow">&bull;</span></a>
-
-                        <ul class="sub-menu">
-                            <li><a onclick="myfunc('x12', 'X')">X</a></li>
-                            <li><a onclick="myfunc('x12', 'Y')">Y</a></li>
-                            <li><a onclick="myfunc('x12', 'Z')">Z</a></li>
-                            <li><a onclick="myfunc('x12', 'H')">H</a></li>
-                            <li><a onclick="myfunc('x12', '%u2295')">&#8853;</a></li>
-                            <li><a onclick="myfunc('x12', 'M')">M</a></li>
-                            <li><a onclick="myfunc('x12', 'CLR')">CLEAR</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </nav>
-        </div>
-
-        <br><br><br><br><br>
-        </div>
-
-        <div id="btsec">
-            <button id="rows" title="your message" class="button-orange">Q</button>
-            <button id="cols" class="button-blue">+</button>
-            <button id="submit" class="button-green">&#10004;</button>
-            <button id="reset" class="button-red">&#8635;</button>
-        </div>
-        <br/><br/><br/>
-        <div id="quilcode">
-            <p id="qum">Quil Program</p>
-            <div id="quilres"></div>
-        </div>
-        <div id="result">
-            <p id="py">Result</p>
-            <div id="pyres"></div>
-        </div>
-
+        <div id="main"></div>
+        <script type="text/javascript" src="../static/vendor.028dd3fe44636a1f4838.js"></script>
+        <script type="text/javascript" src="../static/bundle.afa991ced417cdaedc48.js"></script>
     </body>
-    <script src="../static/js/script.js"></script>
-
 </html>

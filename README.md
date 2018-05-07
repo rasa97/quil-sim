@@ -1,9 +1,9 @@
 # quil-sim
-Quantum Computing Circuit Simulation with Quil as background
+Quantum Computing Circuit Simulation with Quil as background (Project undergoing significant development & changes)
 
-Requires Flask for serving (this project done in v0.12.2, python 2.7)
+Requires Flask for serving
 
-Right now, it supports just 5 gates and measurement operation.
+Right now, it supports just 5 gates.
 
 Blog : https://medium.com/@rasa97uchiha/a-very-very-very-basic-quantum-circuit-simulator-with-quil-ad642b8935b0
 
